@@ -4,6 +4,36 @@ This is a new [**React Native**](https://reactnative.dev) project, bootstrapped 
 
 >**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
 
+Project Requirements: 
+Java version - 17,
+Download openjdk version 17,
+Node version - 18
+
+```bash
+# add environment variable for macos
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/{jdk17}/Contents/Home
+# {jdk17} would mostly in this format - zulu17.jdk in macos
+```
+
+run source ~/.zshrc in terminal
+
+```bash
+# download node version 18 and run
+nvm alias default 18
+```
+
+clone the project after react native environment setup is done
+
+```bash
+# run below commands
+# using yarn
+yarn
+
+# if yarn version is not supported try running below command to install dependencies
+# using npm
+npm install
+```
+
 ## Step 1: Start the Metro Server
 
 First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
@@ -35,6 +65,12 @@ yarn android
 ### For iOS
 
 ```bash
+# First run these commands before running the app
+# go to your project directory
+cd ios
+pod install
+# These are like installing dependencies for apple
+
 # using npm
 npm run ios
 
@@ -42,38 +78,16 @@ npm run ios
 yarn ios
 ```
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+If you have any issues with ndk version 
+open android studio-> sdk manager -> appearance and behaviour -> system settings -> android sdk -> sdk tools
+download the ndk version that you got error with.
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+If yarn ios or npm run ios is throwing any error after installing pods 
+open xcode -> go to you project directory open ios folder
+click the run button and xcode will open the simulator and install the app in the iphone selected
+You can change the simulator if required.
 
-## Step 3: Modifying your App
-
-Now that you have successfully run the app, let's modify it.
-
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
-
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+```bash
+# After setting up everything if you get any error try running this command and you will see the errors with setup
+npx react-native doctor
+```
